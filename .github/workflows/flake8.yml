@@ -1,0 +1,24 @@
+name: Flake8 Code Quality Check
+
+on:
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install Flake8
+        run: pip install flake8
+
+      - name: Run Flake8
+        run: flake8 .

@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 # Load and preprocess dataset
 def load_and_preprocess_data():
-    df = pd.read_csv("dataset.csv")  
+    df = pd.read_csv("C:\\Users\\DELL\\Downloads\\dataset.csv")  
     
     # Handling missing values
     df = df.dropna()

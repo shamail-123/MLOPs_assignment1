@@ -11,6 +11,7 @@ on:
 jobs:
   flake8:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -25,5 +26,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install flake8
 
+      - name: Create Flake8 config
+        run: |
+          echo "[flake8]" > .flake8
+          echo "max-line-length = 100" >> .flake8
+          echo "exclude = .git,__pycache__,venv,env" >> .flake8
+          echo "ignore = E203, E266, E501, W503" >> .flake8
+
       - name: Run Flake8
-        run: flake8 .
+        run: flake8 . --count --show-source --statistics --config=.flake8
+
+      - name: Post Flake8 Report (Optional)
+        if: failure()
+        run: |
+          echo "### :x: Flake8 Linting Failed!" >> $GITHUB_STEP_SUMMARY
+          flake8 . --count --show-source --statistics --config=.flake8 >> $GITHUB_STEP_SUMMARY

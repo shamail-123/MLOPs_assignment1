@@ -59,9 +59,9 @@ pipeline {
                      Regards,  
                      Jenkins
                      """,
-                     to: "siddiqabubakar954@gmail.com",
-                     from: "wahidimahrukh@gmail.com",
-                     replyTo: "wahidimahrukh@gmail.com"
+                     to: "emanfurrukh09@gmail.com",
+                     from: "shamailkhan757@gmail.com",
+                     replyTo: "shamailkhan757@gmail.com"
         }
         failure {
             echo " Build Failed. Check logs for details."

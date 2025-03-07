@@ -50,11 +50,11 @@ pipeline {
         success {
             echo " Build and Deployment Successful!"
             
-            emailext subject: " Deployment Successful: Shoe Price Predictions",
+            emailext subject: " Deployment Successful: Crime-Prediction in LA",
                      body: """
                      Hello Admin,
 
-                     The deployment of Shoe Price Predictions has been successfully completed.
+                     The deployment of crime prediction in la  has been successfully completed.
 
                      Regards,  
                      Jenkins
